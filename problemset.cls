@@ -7,6 +7,7 @@
 % 标志
 \newif\if@Ebook
 \newif\if@Plain
+\newif\if@NoSolution
 
 
 % reference https://tex.stackexchange.com/questions/173643/how-can-i-set-up-my-custom-class-to-load-a-different-class-depending-on-the-clas
@@ -24,8 +25,13 @@
   \gdef\myclasstype{book}
   \gdef\myclassoptions{a4paper,12pt}
   \@Plaintrue
-
 }
+
+
+\DeclareOption{NoSolution}{
+  \@NoSolutiontrue
+}
+
 \DeclareOptionX*{%
   \PassOptionsToClass{\CurrentOption}{\myclasstype}%
 }
@@ -33,11 +39,17 @@
 \ProcessOptionsX
 \LoadClass[\myclassoptions]{\myclasstype}
 
-
+\newtheorem{_problem}{问题}[chapter]
+\newtheorem{_solution}{解}[chapter]
 
 % 加载移动版选项
 \if@Ebook
   \RequirePackage[papersize={108mm,144mm},margin=2mm]{geometry}
+  \newenvironment{problem}{\begin{_problem}}{\end{_problem}\newpage}
+  \newenvironment{solution}{\begin{_solution}}{\end{_solution}\newpage}
+\else
+  \newtheorem{problem}{问题}[chapter]
+  \newtheorem{solution}{解}[chapter]
 \fi
 
 
@@ -46,6 +58,10 @@
   \null
 \fi
 
+\if@NoSolution
+  \RequirePackage{comment}
+  \excludecomment{solution}   %添加这两句话将注释掉所有的`solution`环境
+\fi
 % 包
 \RequirePackage{ctex} % 中文包
 
@@ -99,8 +115,7 @@
 % 其他定理环境 引理, 推论已经定义
 \newtheorem{conclusion}{结论}[section]
 \newtheorem{defintion}{定义}
-\newtheorem{problem}{问题}[chapter]
-\newtheorem{solution}{解}[chapter]
+
 
 % 优化大于等于和小于等于
 \renewcommand{\le}{\leqslant}
@@ -127,7 +142,6 @@
 %     \textbf{答案}\quad
 % }{\par}
 
-% \RequirePackage{comment}
-% \excludecomment{solution}   %添加这两句话将注释掉所有的`solution`环境
+
 
 \endinput
