@@ -39,14 +39,14 @@
 \ProcessOptionsX
 \LoadClass[\myclassoptions]{\myclasstype}
 
-\newtheorem{_problem}{问题}[chapter]
-\newtheorem{_solution}{解}[chapter]
+\newtheorem{@problem}{问题}[chapter]
+\newtheorem{@solution}{解}[chapter]
 
 % 加载移动版选项
 \if@Ebook
   \RequirePackage[papersize={108mm,144mm},margin=2mm]{geometry}
-  \newenvironment{problem}{\begin{_problem}}{\end{_problem}\newpage}
-  \newenvironment{solution}{\begin{_solution}}{\end{_solution}\newpage}
+  \newenvironment{problem}{\begin{@problem}}{\end{@problem}\newpage}
+  \newenvironment{solution}{\begin{@solution}}{\end{@solution}\newpage}
 \else
   \newtheorem{problem}{问题}[chapter]
   \newtheorem{solution}{解}[chapter]
