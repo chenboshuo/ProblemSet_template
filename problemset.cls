@@ -1,7 +1,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{problemset}[2019/12/29 made by chenboshuo]
 
-\def\myclasstype{article}% make sure a default is defined
+\def\myclasstype{book}% make sure a default is defined
 \def\myclassoptions{a4paper,12pt} % 一般不加载
 
 % 标志
@@ -14,14 +14,14 @@
 
 % 移动设备模式
 \DeclareOptionX{ebook}{
-  \gdef\myclasstype{article}
+  \gdef\myclasstype{book}
   \gdef\myclassoptions{12pt}
   \@Ebooktrue
 }
 
 % 打印模式
 \DeclareOptionX{plain}{
-  \gdef\myclasstype{article}
+  \gdef\myclasstype{book}
   \gdef\myclassoptions{a4paper,12pt}
   \@Plaintrue
 
@@ -99,6 +99,8 @@
 % 其他定理环境 引理, 推论已经定义
 \newtheorem{conclusion}{结论}[section]
 \newtheorem{defintion}{定义}
+\newtheorem{problem}{问题}[chapter]
+\newtheorem{solution}{解}[chapter]
 
 % 优化大于等于和小于等于
 \renewcommand{\le}{\leqslant}
@@ -125,7 +127,7 @@
 %     \textbf{答案}\quad
 % }{\par}
 
-\usepackage{comment}
-\excludecomment{solution}   %添加这两句话将注释掉所有的`solution`环境
+% \RequirePackage{comment}
+% \excludecomment{solution}   %添加这两句话将注释掉所有的`solution`环境
 
 \endinput
