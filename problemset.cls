@@ -2,7 +2,7 @@
 \ProvidesClass{problemset}[2019/12/29 made by chenboshuo]
 
 \def\myclasstype{book}% make sure a default is defined
-\def\myclassoptions{a4paper,12pt} % 一般不加载
+\def\myclassoptions{a4paper,12pt,fleqn} % 一般不加载
 
 % 标志
 \newif\if@Ebook
@@ -16,14 +16,14 @@
 % 移动设备模式
 \DeclareOptionX{ebook}{
   \gdef\myclasstype{book}
-  \gdef\myclassoptions{12pt}
+  \gdef\myclassoptions{12pt,fleqn}
   \@Ebooktrue
 }
 
 % 打印模式
 \DeclareOptionX{plain}{
   \gdef\myclasstype{book}
-  \gdef\myclassoptions{a4paper,12pt}
+  \gdef\myclassoptions{a4paper,12pt,fleqn}
   \@Plaintrue
 }
 
@@ -38,6 +38,8 @@
 
 \ProcessOptionsX
 \LoadClass[\myclassoptions]{\myclasstype}
+
+
 
 \newtheorem{@problem}{问题}[chapter]
 \newtheorem{@solution}{解}[chapter]
@@ -142,6 +144,9 @@
 %     \textbf{答案}\quad
 % }{\par}
 
+% reference
+% https://tex.stackexchange.com/questions/167925/how-to-make-maths-equations-start-at-the-left
+\setlength\mathindent{10pt} 
 
 
 \endinput

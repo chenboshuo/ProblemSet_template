@@ -1,7 +1,6 @@
-% \documentclass[ebook]{problemset}
+\documentclass[ebook,fleqn]{problemset}
 % \documentclass{problemset}
-\documentclass[NoSolution]{problemset}
-
+% \documentclass[NoSolution]{problemset}
 \begin{document}
 
 \chapter{1}
@@ -10,7 +9,18 @@
 \end{problem}
 
 \begin{solution}
-  \[a\]
+  $\lim_{x \to 0} \dfrac{f(x)}{x-x_0} = c_1$,
+  $\lim_{x \to 0} \dfrac{g(x)}{x-x_0} = c_2$,
+
+  \[
+    \lim_{x\to0} \dfrac{f(x)g(x)}{x-x_0}
+  \]
+  \[
+   = \lim_{x\to0} f(x) \lim_{x \to 0} \dfrac{g(x)}{x-x_0}
+  \]
+  \[
+    = 0 \cdot c_2 = 0
+  \]
 \end{solution}
 \chapter{2}
 
