@@ -48,7 +48,7 @@
 \if@Ebook
   \RequirePackage[papersize={108mm,144mm},margin=2mm]{geometry}
   \newenvironment{problem}{\begin{@problem}}{\end{@problem}\newpage}
-  \newenvironment{solution}{\begin{@solution}}{\end{@solution}\newpage}
+  \newenvironment{solution}{\begin{@solution}}{\end{@solution}}
 \else
   \newtheorem{problem}{问题}[chapter]
   \newtheorem{solution}{解}[chapter]
