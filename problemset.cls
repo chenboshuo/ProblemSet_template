@@ -53,6 +53,8 @@
   \newtheorem{problem}{问题}[chapter]
   \newtheorem{solution}{解}[chapter]
 \fi
+\newtheorem{proof}{证明}[chapter]
+\newtheorem{theorem}{定理}[chapter]
 
 
 % 加载打印版选项
@@ -146,7 +148,7 @@
 
 % reference
 % https://tex.stackexchange.com/questions/167925/how-to-make-maths-equations-start-at-the-left
-\setlength\mathindent{10pt} 
+\setlength\mathindent{10pt}
 
 
 \endinput
