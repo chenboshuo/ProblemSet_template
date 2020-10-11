@@ -140,6 +140,8 @@
 \crefrangeformat{equation}{公式(#3#1#4)\;\~{}\;(#5#2#6)}
 \crefmultiformat{equation}{公式(#2#1#3)}{ 和~(#2#1#3)}{，(#2#1#3)}{ 和~(#2#1#3)}
 
+% todo
+\RequirePackage{todonotes}
 
 
 % \newenvironment{solution}{\par
@@ -149,6 +151,7 @@
 % reference
 % https://tex.stackexchange.com/questions/167925/how-to-make-maths-equations-start-at-the-left
 \setlength\mathindent{10pt}
+\setuptodonotes{inline, color=blue!30}
 
 
 \endinput
