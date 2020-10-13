@@ -13,3 +13,6 @@
 *.nav
 *.xcp
 *.vrb
+
+# my build directory
+/**/_build
