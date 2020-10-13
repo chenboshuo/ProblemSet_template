@@ -16,3 +16,6 @@
 
 # my build directory
 /**/_build
+
+**.pdf
+!main.pdf
