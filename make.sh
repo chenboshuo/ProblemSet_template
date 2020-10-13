@@ -1,3 +1,4 @@
+mkdir _build
 echo "\documentclass[ebook,fleqn]{problemset}" > ebook.tex | awk 'FNR>1' main.tex >> ebook.tex
 xelatex ebook.tex
 xelatex ebook.tex
