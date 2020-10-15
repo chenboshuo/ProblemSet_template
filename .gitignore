@@ -13,6 +13,7 @@
 *.nav
 *.xcp
 *.vrb
+*.tdo
 
 # my build directory
 /**/_build
