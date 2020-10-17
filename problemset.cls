@@ -53,7 +53,7 @@
   \newtheorem{problem}{问题}[chapter]
   \newtheorem{solution}{解}[chapter]
 \fi
-\newtheorem{proof}{证明}[chapter]
+% \newtheorem{proof}{证明}[chapter]
 \newtheorem{theorem}{定理}[chapter]
 
 
@@ -155,6 +155,8 @@
 
 % remark environment
 \newenvironment{remark}{\noindent\textbf{\color{blue}注}}{\par}
+
+\newenvironment{proof}{\noindent\textbf{\color{blue}证明}}{\par}
 
 
 \endinput
