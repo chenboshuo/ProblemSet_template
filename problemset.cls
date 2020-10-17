@@ -153,5 +153,8 @@
 \setlength\mathindent{10pt}
 \setuptodonotes{inline, color=blue!30}
 
+% remark environment
+\newenvironment{remark}{\noindent\textbf{\color{blue}注}}{\par}
+
 
 \endinput
