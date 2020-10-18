@@ -154,9 +154,9 @@
 \setuptodonotes{inline, color=blue!30}
 
 % remark environment
-\newenvironment{remark}{\noindent\textbf{\color{blue}注}}{\par}
+\newenvironment{remark}{\textbf{\color{blue}注}}{\par}
 
-\newenvironment{proof}{\noindent\textbf{\color{blue}证明}}{\par}
+\newenvironment{proof}{\textbf{\color{blue}证明}}{\par}
 
 
 \endinput
