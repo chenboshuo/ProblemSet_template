@@ -118,7 +118,7 @@
 
 % 其他定理环境 引理, 推论已经定义
 \newtheorem{conclusion}{结论}[section]
-\newtheorem{defintion}{定义}
+\newtheorem{definition}{定义}[section]
 
 
 % 优化大于等于和小于等于
