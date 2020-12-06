@@ -79,6 +79,9 @@
 \RequirePackage{amssymb}
 \RequirePackage{bm}
 
+%% booktabs 提供了\toprule 等命令.
+\RequirePackage{booktabs}
+
 % 插入图片
 \RequirePackage{graphicx}
 \RequirePackage{float}
