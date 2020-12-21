@@ -78,6 +78,7 @@
 \RequirePackage{amsfonts}
 \RequirePackage{amssymb}
 \RequirePackage{bm}
+\RequirePackage{mathtools}
 
 %% booktabs 提供了\toprule 等命令.
 \RequirePackage{booktabs}
