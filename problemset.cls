@@ -163,4 +163,9 @@
 \newenvironment{proof}{\textbf{\color{blue}证明}}{\par}
 
 
+% Load the package with the acronym option
+\RequirePackage[acronym,nomain]{glossaries}
+
+
+
 \endinput

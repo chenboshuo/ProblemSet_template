@@ -2,42 +2,63 @@
 \documentclass[ebook,fleqn]{problemset}
 % \documentclass{problemset}
 % \documentclass[NoSolution]{problemset}
+
+% Generate the glossary
+\makeglossaries
+
 \begin{document}
 
 \listoftodos % todo 列表
 \tableofcontents % 目录
-\chapter{1}
-\begin{problem}
-  问题1
-\end{problem}
+\chapter{问题环境样例}
+  \begin{problem}
+    问题1
+  \end{problem}
 
-\begin{solution}
-  $\lim_{x \to 0} \dfrac{f(x)}{x-x_0} = c_1$,
-  $\lim_{x \to 0} \dfrac{g(x)}{x-x_0} = c_2$,
+  \begin{solution}
+    $\lim_{x \to 0} \dfrac{f(x)}{x-x_0} = c_1$,
+    $\lim_{x \to 0} \dfrac{g(x)}{x-x_0} = c_2$,
 
-  \[
-    \lim_{x\to0} \dfrac{f(x)g(x)}{x-x_0}
-  \]
-  \[
-   = \lim_{x\to0} f(x) \lim_{x \to 0} \dfrac{g(x)}{x-x_0}
-  \]
-  \[
-    = 0 \cdot c_2 = 0
-  \]
-\end{solution}
-\chapter{2}
+    \[
+      \lim_{x\to0} \dfrac{f(x)g(x)}{x-x_0}
+    \]
+    \[
+     = \lim_{x\to0} f(x) \lim_{x \to 0} \dfrac{g(x)}{x-x_0}
+    \]
+    \[
+      = 0 \cdot c_2 = 0
+    \]
+  \end{solution}
+  \chapter{2}
 
-\begin{problem}
-  问题2
-\end{problem}
-\begin{solution}
-    \[b\]
-\end{solution}
-\begin{problem}
-  问题3
-\end{problem}
-\begin{solution}
-    \[c\]
-\end{solution}
+  \begin{problem}
+    问题2
+  \end{problem}
+  \begin{solution}
+      \[b\]
+  \end{solution}
+  \begin{problem}
+    问题3
+  \end{problem}
+  \begin{solution}
+      \[c\]
+  \end{solution}
+
+\chapter{术语相关}
+
+% Acronym definitions
+\newacronym{utc}{UTC}{Coordinated Universal Time}
+\newacronym{adt}{ADT}{Atlantic Daylight Time}
+\newacronym{est}{EST}{Eastern Standard Time}
+
+% Use the acronyms
+\gls{utc} is 3 hours behind \gls{adt} and 10 hours ahead of \gls{est}.
+
+%Print the glossary
+\printacronyms
+
+
+% %Print the glossary
+% \printglossaries
 
 \end{document}

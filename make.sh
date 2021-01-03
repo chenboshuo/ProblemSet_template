@@ -5,6 +5,7 @@ mkdir _build
 echo "\PassOptionsToPackage{disable}{todonotes} \documentclass[ebook,fleqn]{problemset}" > ebook.tex
 awk 'FNR>2' main.tex >> ebook.tex
 xelatex ebook.tex
+makeglossaries ebook
 xelatex ebook.tex
 mv ebook.pdf _build/ebook.pdf
 
@@ -12,6 +13,7 @@ mv ebook.pdf _build/ebook.pdf
 echo "\PassOptionsToPackage{disable}{todonotes} \documentclass{problemset}" > plain.tex
 awk 'FNR>2' main.tex >> plain.tex
 xelatex plain.tex
+makeglossaries plain
 xelatex plain.tex
 mv plain.pdf _build/plain.pdf
 
@@ -19,6 +21,7 @@ mv plain.pdf _build/plain.pdf
 echo "\documentclass{problemset}" > todo.tex
 awk 'FNR>2' main.tex >> todo.tex
 xelatex todo.tex
+makeglossaries todo
 xelatex todo.tex
 mv todo.pdf _build/todo.pdf
 
