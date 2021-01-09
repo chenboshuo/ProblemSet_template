@@ -6,13 +6,19 @@
 % Generate the glossary
 \makeglossaries
 
+% references
+\bibliography{chapter/reference1}
+\bibliography{chapter/reference2}
+
+\usepackage{subfiles}
+
 \begin{document}
 
 \listoftodos % todo 列表
 \tableofcontents % 目录
-\chapter{问题环境样例}
+\chapter{problem 1}
   \begin{problem}
-    问题1
+    problem
   \end{problem}
 
   \begin{solution}
@@ -29,22 +35,31 @@
       = 0 \cdot c_2 = 0
     \]
   \end{solution}
-  \chapter{2}
+\chapter{problem 2}
 
   \begin{problem}
-    问题2
+    problem
   \end{problem}
   \begin{solution}
       \[b\]
   \end{solution}
   \begin{problem}
-    问题3
+    problem
   \end{problem}
   \begin{solution}
       \[c\]
   \end{solution}
 
-\chapter{术语相关}
+\chapter{每章的参考文献}
+  \newrefsection
+  \subfile{chapter/try_reference1}
+  \printbibliography
+\chapter{每章的参考文献}
+  \newrefsection
+  \subfile{chapter/try_reference2}
+  \printbibliography
+
+\chapter{acronym}
 
 % Acronym definitions
 \newacronym{utc}{UTC}{Coordinated Universal Time}
@@ -55,7 +70,9 @@
 \gls{utc} is 3 hours behind \gls{adt} and 10 hours ahead of \gls{est}.
 
 %Print the glossary
-\printacronyms
+\addcontentsline{toc}{chapter}{try acronym}
+% \printacronyms
+\printglossary[type=\acronymtype,title={try acronym}]
 
 
 % %Print the glossary

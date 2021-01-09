@@ -166,6 +166,7 @@
 % Load the package with the acronym option
 \RequirePackage[acronym,nomain]{glossaries}
 
-
+% chapter references
+\RequirePackage{biblatex}
 
 \endinput

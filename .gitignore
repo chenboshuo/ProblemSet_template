@@ -19,6 +19,8 @@
 *.acr
 *.ist
 *.glsdefs
+*.bcf
+*.run.xml
 
 # my build directory
 /**/_build
