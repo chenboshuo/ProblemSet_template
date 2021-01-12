@@ -167,6 +167,5 @@
 \RequirePackage[acronym,nomain]{glossaries}
 
 % chapter references
-\RequirePackage{biblatex}
-
+\RequirePackage[alldates=iso8601]{biblatex}
 \endinput
