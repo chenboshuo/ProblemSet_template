@@ -168,4 +168,8 @@
 
 % chapter references
 \RequirePackage[alldates=iso8601]{biblatex}
+% 中文链接
+\newfontfamily\urlfontfamily{KaiTi-Regular}
+\def\UrlFont{\urlfontfamily}
+
 \endinput
