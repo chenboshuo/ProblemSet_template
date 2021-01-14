@@ -13,12 +13,12 @@ awk 'FNR>2' main.tex >> ebook.tex
 build_item ebook
 
 # make plain book file
-echo "\PassOptionsToPackage{disable}{todonotes} \documentclass{problemset}" > plain.tex
+echo "\PassOptionsToPackage{disable}{todonotes} \documentclass[fleqn]{problemset}" > plain.tex
 awk 'FNR>2' main.tex >> plain.tex
 build_item plain
 
 # make books with todos
-echo "\documentclass{problemset}" > todo.tex
+echo "\documentclass[fleqn]{problemset}" > todo.tex
 awk 'FNR>2' main.tex >> todo.tex
 build_item todo
 
