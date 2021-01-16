@@ -1,12 +1,12 @@
 # define a build
 build_item(){
   xelatex $1.tex
-  makeglossaries $1
   biber $1
   xelatex $1.tex
+  makeglossaries $1
   xelatex $1.tex
+  # xelatex $1.tex
 }
-
 # make ebook file
 echo "\PassOptionsToPackage{disable}{todonotes} \documentclass[ebook,fleqn]{problemset}" > ebook.tex
 awk 'FNR>2' main.tex >> ebook.tex
