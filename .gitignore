@@ -25,4 +25,5 @@
 # my build directory
 /**/_build
 
-**.pdf
+*.pdf
+!**/figures/*.pdf
