@@ -37,6 +37,12 @@ _build/%.pdf: %.pdf
 ## make clean: clean the temp files
 clean:
 	git clean -fxd --exclude='*.pdf'
+	@echo Removing ebook.tex
+	@rm -f ebook.tex
+	@echo Removing book.tex
+	@rm -f book.tex
+	@echo Removing todo.tex
+	@rm -f todo.tex
 
 ## make _build: create directory _build
 _build:
