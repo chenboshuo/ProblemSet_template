@@ -172,4 +172,17 @@
 \newfontfamily\urlfontfamily{KaiTi-Regular}
 \def\UrlFont{\urlfontfamily}
 
+% subsubsection int toc
+\RequirePackage{titletoc}% http://ctan.org/pkg/titletoc
+\titlecontents*{subsubsection}% <section>
+  [7em]% <left>
+  {\small}% <above-code>
+  {}% <numbered-entry-format>; you could also use {\thecontentslabel. } to show the numbers
+  {}% <numberless-entry-format>
+  % {\ \thecontentspage}% <filler-page-format>
+  {}% <filler-page-format>
+  [,\ ]% <separator>
+  []% <end>
+\setcounter{tocdepth}{3}
+
 \endinput
