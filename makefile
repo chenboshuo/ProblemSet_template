@@ -1,7 +1,16 @@
-.PHONY : all clean help
+.PHONY : all clean help todo ebook book
 
 ## make all : regenerate all results.
-all: _build/todo.pdf _build/ebook.pdf _build/book.pdf
+all: todo ebook book
+
+## make todo: make _build/todo.pdf
+todo: _build/todo.pdf
+
+## make ebook: make _build/ebook.pdf
+ebook: _build/ebook.pdf
+
+## make book: make _build/book.pdf
+book: _build/book.pdf
 
 ## make todo.tex: make books tex file with todos
 todo.tex : _build
