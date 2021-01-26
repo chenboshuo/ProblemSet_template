@@ -5,12 +5,13 @@ all: todo ebook book
 
 ## make todo: make _build/todo.pdf
 todo: _build/todo.pdf
-
+	rm -f todo.tex
 ## make ebook: make _build/ebook.pdf
 ebook: _build/ebook.pdf
-
+	rm -f ebook.tex
 ## make book: make _build/book.pdf
 book: _build/book.pdf
+	rm -f book.tex
 
 ## make todo.tex: make books tex file with todos
 todo.tex : _build
@@ -31,17 +32,13 @@ book.tex: _build
 	awk 'FNR>2' main.tex >> book.tex
 
 ## make *.pdf : generate the pdf files
-%.pdf: %.tex
-	xelatex $<
-	biber $(basename $<)
-	xelatex $<
-	makeglossaries $(basename $<)
-	xelatex $<
-
-## make _build/*.pdf : generate *.pdf and remove to _build/
-_build/%.pdf: %.pdf
-	mv $< $@
-
+_build/%.pdf: %.tex
+	xelatex -output-directory="./_build" $<
+	biber ./_build/$(basename $<)
+	xelatex -output-directory="./_build" $<
+	makeglossaries -d ./_build/ $(basename $<)
+	# makeglossaries $(basename $<)
+	xelatex -output-directory="./_build" $<
 
 ## make clean: clean the temp files
 clean:
