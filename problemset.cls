@@ -185,4 +185,7 @@
   []% <end>
 \setcounter{tocdepth}{3}
 
+% toc in toc
+\RequirePackage{tocbibind}
+
 \endinput
