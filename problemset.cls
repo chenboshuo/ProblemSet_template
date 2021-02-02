@@ -16,7 +16,7 @@
 % 移动设备模式
 \DeclareOptionX{ebook}{
   \gdef\myclasstype{book}
-  \gdef\myclassoptions{12pt,fleqn}
+  \gdef\myclassoptions{12pt,fleqn,oneside}
   \@Ebooktrue
 }
 
