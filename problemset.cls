@@ -188,4 +188,8 @@
 % toc in toc
 \RequirePackage{tocbibind}
 
+% 上标文献
+\newcommand{\upcite}[1]{$^{\mbox{\scriptsize \cite{#1}}}$}
+
+
 \endinput
