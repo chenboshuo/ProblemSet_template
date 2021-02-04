@@ -42,7 +42,8 @@ _build/%.pdf: %.tex
 
 ## make clean: clean the temp files
 clean:
-	git clean -fxd --exclude='*.pdf'
+	git clean -fXd --exclude='*.pdf'
+	# git ls-files --others | xargs gio trash
 	@echo Removing ebook.tex
 	@rm -f ebook.tex
 	@echo Removing book.tex
