@@ -121,8 +121,9 @@
 }
 
 % 其他定理环境 引理, 推论已经定义
-\newtheorem{conclusion}{结论}[section]
-\newtheorem{definition}{定义}[section]
+\newtheorem{conclusion}{结论}[chapter]
+\newtheorem{definition}{定义}[chapter]
+\newtheorem{corollary}{推论}[theorem]
 
 
 % 优化大于等于和小于等于
