@@ -193,4 +193,26 @@
 \newcommand{\upcite}[1]{$^{\mbox{\scriptsize \cite{#1}}}$}
 
 
+\def\sectionFootnote{
+  \ifx
+    \protect\@typeset@protect
+    \expandafter\footnote
+  \else\expandafter\@gobble
+  \fi
+}
+
+\def\sectionCite{
+  \ifx
+    \protect\@typeset@protect
+    \expandafter\upcite
+  \else\expandafter\@gobble
+  \fi
+}
+
+\newcommand{\glsnote}[2]{
+  \newacronym{#1}{#1}{#2}
+  \textbf{#1}
+  \footnote{\gls{#1}}
+}
+
 \endinput

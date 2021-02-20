@@ -23,7 +23,7 @@
 *.run.xml
 
 # my build files
-/**/_build
+/**/build
 ebook.tex
 book.tex
 todo.tex

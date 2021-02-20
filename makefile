@@ -3,42 +3,42 @@
 ## make all : regenerate all results.
 all: todo ebook book
 
-## make todo: make _build/todo.pdf
-todo: _build/todo.pdf
+## make todo: make build/todo.pdf
+todo: build/todo.pdf
 	rm -f todo.tex
-## make ebook: make _build/ebook.pdf
-ebook: _build/ebook.pdf
+## make ebook: make build/ebook.pdf
+ebook: build/ebook.pdf
 	rm -f ebook.tex
-## make book: make _build/book.pdf
-book: _build/book.pdf
+## make book: make build/book.pdf
+book: build/book.pdf
 	rm -f book.tex
 
 ## make todo.tex: make books tex file with todos
-todo.tex : _build
+todo.tex : build
 	echo "\documentclass[fleqn]{problemset}" > todo.tex
 	awk 'FNR>2' main.tex >> todo.tex
 
 ## make todo.tex: make ebook tex file
-ebook.tex: _build
+ebook.tex: build
 	echo "\PassOptionsToPackage{disable}{todonotes}"\
 	  "\documentclass[ebook,fleqn]{problemset}" \
 	  > ebook.tex
 	awk 'FNR>2' main.tex >> ebook.tex
 
 ## make book.tex: make ebook tex file
-book.tex: _build
+book.tex: build
 	echo "\PassOptionsToPackage{disable}{todonotes}" \
 		"\documentclass[fleqn]{problemset}" > book.tex
 	awk 'FNR>2' main.tex >> book.tex
 
 ## make *.pdf : generate the pdf files
-_build/%.pdf: %.tex
-	xelatex -output-directory="./_build" $<
-	biber ./_build/$(basename $<)
-	xelatex -output-directory="./_build" $<
-	makeglossaries -d ./_build/ $(basename $<)
+build/%.pdf: %.tex
+	xelatex -output-directory="./build" $<
+	biber ./build/$(basename $<)
+	xelatex -output-directory="./build" $<
+	makeglossaries -d ./build/ $(basename $<)
 	# makeglossaries $(basename $<)
-	xelatex -output-directory="./_build" $<
+	xelatex -output-directory="./build" $<
 
 ## make clean: clean the temp files
 clean:
@@ -51,9 +51,9 @@ clean:
 	@echo Removing todo.tex
 	@rm -f todo.tex
 
-## make _build: create directory _build
-_build:
-	mkdir _build
+## make build: create directory build
+build:
+	mkdir build
 
 ## make help : show this message.
 help :
