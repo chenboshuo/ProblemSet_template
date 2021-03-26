@@ -2,7 +2,7 @@
 \ProvidesClass{problemset}[2019/12/29 made by chenboshuo]
 
 \def\myclasstype{book}% make sure a default is defined
-\def\myclassoptions{a4paper,12pt,fleqn} % 一般不加载
+\def\myclassoptions{a4paper,12pt} % 一般不加载
 
 % 标志
 \newif\if@Ebook
@@ -16,14 +16,14 @@
 % 移动设备模式
 \DeclareOptionX{ebook}{
   \gdef\myclasstype{book}
-  \gdef\myclassoptions{12pt,fleqn,oneside}
+  \gdef\myclassoptions{12pt,oneside}
   \@Ebooktrue
 }
 
 % 打印模式
 \DeclareOptionX{plain}{
   \gdef\myclasstype{book}
-  \gdef\myclassoptions{a4paper,12pt,fleqn}
+  \gdef\myclassoptions{a4paper,12pt}
   \@Plaintrue
 }
 
@@ -46,7 +46,10 @@
 
 % 加载移动版选项
 \if@Ebook
-  \RequirePackage[papersize={108mm,144mm},margin=2mm]{geometry}
+  \RequirePackage[papersize={108mm,144mm},
+    margin=2mm,
+    bottom=3mm
+  ]{geometry}
   \newenvironment{problem}{\begin{@problem}}{\end{@problem}\newpage}
   \newenvironment{solution}{\begin{@solution}}{\end{@solution}}
 \else
@@ -147,6 +150,7 @@
 
 % todo
 \RequirePackage{todonotes}
+\setuptodonotes{inline, color=blue!30}
 
 
 % \newenvironment{solution}{\par
@@ -154,9 +158,8 @@
 % }{\par}
 
 % reference
-% https://tex.stackexchange.com/questions/167925/how-to-make-maths-equations-start-at-the-left
-\setlength\mathindent{10pt}
-\setuptodonotes{inline, color=blue!30}
+% % https://tex.stackexchange.com/questions/167925/how-to-make-maths-equations-start-at-the-left
+% \setlength\mathindent{10pt}
 
 % remark environment
 \newenvironment{remark}{\textbf{\color{blue}注}}{\par}
@@ -168,7 +171,7 @@
 \RequirePackage[acronym,nomain]{glossaries}
 
 % chapter references
-\RequirePackage[alldates=iso8601]{biblatex}
+\RequirePackage[alldates=iso]{biblatex}
 % 中文链接
 \newfontfamily\urlfontfamily{KaiTi-Regular}
 \def\UrlFont{\urlfontfamily}
