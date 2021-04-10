@@ -217,5 +217,8 @@
   \textbf{#1}
   \footnote{\gls{#1}}
 }
+% matrix col number
+% https://tex.stackexchange.com/a/59519
+\RequirePackage{blkarray}
 
 \endinput
