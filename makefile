@@ -15,20 +15,20 @@ book: build/book.pdf
 
 ## make todo.tex: make books tex file with todos
 todo.tex : build
-	echo "\documentclass[fleqn]{problemset}" > todo.tex
+	echo "\documentclass{problemset}" > todo.tex
 	awk 'FNR>2' main.tex >> todo.tex
 
 ## make todo.tex: make ebook tex file
 ebook.tex: build
 	echo "\PassOptionsToPackage{disable}{todonotes}"\
-	  "\documentclass[ebook,fleqn]{problemset}" \
+	  "\documentclass[ebook]{problemset}" \
 	  > ebook.tex
 	awk 'FNR>2' main.tex >> ebook.tex
 
 ## make book.tex: make ebook tex file
 book.tex: build
 	echo "\PassOptionsToPackage{disable}{todonotes}" \
-		"\documentclass[fleqn]{problemset}" > book.tex
+		"\documentclass{problemset}" > book.tex
 	awk 'FNR>2' main.tex >> book.tex
 
 ## make *.pdf : generate the pdf files
