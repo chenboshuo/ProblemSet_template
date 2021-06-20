@@ -73,7 +73,7 @@
 \RequirePackage{ctex} % 中文包
 
 % 自动链接
-\RequirePackage{hyperref}
+\RequirePackage[pdfusetitle]{hyperref}
 \hypersetup{hidelinks} % 隐藏超链接周围红框
 
 % 数学宏包
