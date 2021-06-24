@@ -1,7 +1,9 @@
 .PHONY : all clean help todo ebook book
+.ONESHELL: # Applies to every targets in the file!
+.INTERMEDIATE : inkscape
 
 ## make all : regenerate all results.
-all: todo ebook book
+all: inkscape todo ebook book
 
 ## make todo: make build/todo.pdf
 todo: build/todo.pdf
@@ -12,6 +14,7 @@ ebook: build/ebook.pdf
 ## make book: make build/book.pdf
 book: build/book.pdf
 	rm -f book.tex
+
 
 ## make todo.tex: make books tex file with todos
 todo.tex : build
@@ -39,6 +42,15 @@ build/%.pdf: %.tex
 	makeglossaries -d ./build/ $(basename $<)
 	# makeglossaries $(basename $<)
 	xelatex -output-directory="./build" $<
+
+## make inkscape: if has inkscape svg,convert it into pdf+latex version
+inkscape:
+	cd figures
+	for i in $$(find . -type f -name '*.svg');do
+		inkscape $$i --export-filename=$$(basename $$i .svg ).pdf \
+		  --export-latex --export-area-drawing
+	done
+
 
 ## make clean: clean the temp files
 clean:
