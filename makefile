@@ -1,6 +1,6 @@
-.PHONY : all clean help todo ebook book
+.PHONY : all clean help todo ebook book inkscape
 .ONESHELL: # Applies to every targets in the file!
-.INTERMEDIATE : inkscape
+# .INTERMEDIATE : inkscape
 
 ## make all : regenerate all results.
 all: inkscape todo ebook book
@@ -45,11 +45,14 @@ build/%.pdf: %.tex
 
 ## make inkscape: if has inkscape svg,convert it into pdf+latex version
 inkscape:
-	cd figures
-	for i in $$(find . -type f -name '*.svg');do
-		inkscape $$i --export-filename=$$(basename $$i .svg ).pdf \
-		  --export-latex --export-area-drawing
-	done
+	if inkscape --version
+	then
+		cd figures
+		for i in $$(find . -type f -name '*.svg');do
+			inkscape $$i --export-filename=_$$(basename $$i .svg ).pdf \
+			  --export-latex --export-area-drawing
+		done
+	fi
 
 
 ## make clean: clean the temp files

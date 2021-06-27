@@ -31,3 +31,6 @@ main.pdf
 
 *.pdf
 !**/figures/*.pdf
+
+# generated pdf
+**/figures/_*
