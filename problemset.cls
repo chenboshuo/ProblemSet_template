@@ -281,4 +281,9 @@
   \setmonofont{DejaVu Sans Mono}
 \fi
 
+% romannum
+% https://tex.stackexchange.com/a/303530
+\RequirePackage{romannum}
+
+
 \endinput
