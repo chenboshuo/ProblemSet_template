@@ -47,7 +47,7 @@
 % 加载移动版选项
 \if@Ebook
   \RequirePackage[papersize={108mm,144mm},
-    margin=2mm,
+    margin=3mm,
     bottom=3mm
   ]{geometry}
   \newenvironment{problem}{\begin{@problem}}{\end{@problem}\newpage}
