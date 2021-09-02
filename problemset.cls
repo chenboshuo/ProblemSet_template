@@ -285,5 +285,9 @@
 % https://tex.stackexchange.com/a/303530
 \RequirePackage{romannum}
 
+% 固定大小的表格
+% https://tex.stackexchange.com/questions/10535/how-to-force-a-table-into-page-width
+\RequirePackage{tabularx}
+
 
 \endinput
