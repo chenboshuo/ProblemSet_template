@@ -289,5 +289,7 @@
 % https://tex.stackexchange.com/questions/10535/how-to-force-a-table-into-page-width
 \RequirePackage{tabularx}
 
+% 斜线表头
+\RequirePackage{diagbox}
 
 \endinput
