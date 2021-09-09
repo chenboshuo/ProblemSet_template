@@ -212,10 +212,10 @@
   \fi
 }
 
-\newcommand{\glsnote}[2]{
-  \newacronym{#1}{#1}{#2}
-  \textbf{#1}
-  \footnote{\gls{#1}}
+\newcommand{\glsnote}[2]{%
+  \newacronym{#1}{#1}{#2}%
+  \textbf{#1}%
+  \footnote{\gls{#1}}%
 }
 % matrix col number
 % https://tex.stackexchange.com/a/59519
