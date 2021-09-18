@@ -9,7 +9,6 @@
 \newif\if@Plain
 \newif\if@NoSolution
 
-
 % reference https://tex.stackexchange.com/questions/173643/how-can-i-set-up-my-custom-class-to-load-a-different-class-depending-on-the-clas
 \RequirePackage{xkeyval}% better option processing - there are many other possibilities as you probably know so just adapt as needed
 
@@ -27,7 +26,6 @@
   \@Plaintrue
 }
 
-
 \DeclareOption{NoSolution}{
   \@NoSolutiontrue
 }
@@ -39,10 +37,13 @@
 \ProcessOptionsX
 \LoadClass[\myclassoptions]{\myclasstype}
 
-
-
-\newtheorem{@problem}{问题}[chapter]
-\newtheorem{@solution}{解}[chapter]
+% 其他定理环境 引理, 推论已经定义
+\newtheorem{problem}{问题}[chapter]
+\newtheorem{solution}{解}[problem]
+\newtheorem{conclusion}{结论}[chapter]
+\newtheorem{definition}{定义}[chapter]
+\newtheorem{theorem}{定理}[chapter]
+\newtheorem{corollary}{推论}[theorem]
 
 % 加载移动版选项
 \if@Ebook
@@ -50,15 +51,7 @@
     margin=3mm,
     bottom=3mm
   ]{geometry}
-  \newenvironment{problem}{\begin{@problem}}{\end{@problem}\newpage}
-  \newenvironment{solution}{\begin{@solution}}{\end{@solution}}
-\else
-  \newtheorem{problem}{问题}[chapter]
-  \newtheorem{solution}{解}[chapter]
 \fi
-% \newtheorem{proof}{证明}[chapter]
-\newtheorem{theorem}{定理}[chapter]
-
 
 % 加载打印版选项
 \if@Plain
@@ -123,16 +116,6 @@
   \nonscript\mskip-\medmuskip
 }
 
-% 其他定理环境 引理, 推论已经定义
-\newtheorem{conclusion}{结论}[chapter]
-\newtheorem{definition}{定义}[chapter]
-\newtheorem{corollary}{推论}[theorem]
-
-
-% 优化大于等于和小于等于
-\renewcommand{\le}{\leqslant}
-\renewcommand{\ge}{\geqslant}
-
 % 算法环境
 \RequirePackage{algorithm}
 % \RequirePackage{clrscode}
@@ -152,20 +135,10 @@
 \RequirePackage{todonotes}
 \setuptodonotes{inline, color=blue!30}
 
-
-% \newenvironment{solution}{\par
-%     \textbf{答案}\quad
-% }{\par}
-
-% reference
-% % https://tex.stackexchange.com/questions/167925/how-to-make-maths-equations-start-at-the-left
-% \setlength\mathindent{10pt}
-
 % remark environment
 \newenvironment{remark}{\textbf{\color{blue}注}}{\par}
 
 \newenvironment{proof}{\textbf{\color{blue}证明}}{\par}
-
 
 % Load the package with the acronym option
 \RequirePackage[acronym,nomain]{glossaries}
@@ -194,7 +167,6 @@
 
 % 上标文献
 \newcommand{\upcite}[1]{$^{\mbox{\scriptsize \cite{#1}}}$}
-
 
 \def\sectionFootnote{
   \ifx
