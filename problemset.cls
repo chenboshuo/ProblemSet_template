@@ -39,7 +39,7 @@
 
 % 其他定理环境 引理, 推论已经定义
 \newtheorem{problem}{问题}[chapter]
-\newtheorem{solution}{解}[problem]
+\newtheorem{solution}{解}
 \newtheorem{conclusion}{结论}[chapter]
 \newtheorem{definition}{定义}[chapter]
 \newtheorem{theorem}{定理}[chapter]
@@ -300,5 +300,31 @@
 \lstnewenvironment{DIFverbatim}{\lstset{style=DIFverbatimstyle}}{} %DIF PREAMBLE
 \lstnewenvironment{DIFverbatim*}{\lstset{style=DIFverbatimstyle,showspaces=true}}{} %DIF PREAMBLE
 %DIF END PREAMBLE EXTENSION ADDED BY LATEXDIFF
+
+\newcounter{numsolution}
+\numberwithin{numsolution}{problem}
+\makeatletter
+\AtBeginEnvironment{problem}{%
+    \addtocounter{problem}{1}
+    \newcounter{solsofprob\the\value{chapter}.\the\value{subsection}.\the\value{problem}}
+    \addtocounter{problem}{-1}
+}
+\AtBeginEnvironment{solution}{%
+    \addtocounter{solsofprob\the\value{chapter}.\the\value{subsection}.\the\value{problem}}{1}
+    \immediate\write\@mainaux{\string\gdef\string\numsolsofprob\romannumeral\the\value{chapter}@\romannumeral\the\value{subsection}@\romannumeral\the\value{problem}{\the\value{solsofprob\the\value{chapter}.\the\value{subsection}.\the\value{problem}}}}%
+}
+\newcommand{\tempnum}{0}
+\renewcommand{\thesolution}{%
+    \@ifundefined{numsolsofprob\romannumeral\the\value{chapter}@\romannumeral\the\value{subsection}@\romannumeral\the\value{problem}}%
+        {\def\tempnum{0}}%
+        {\edef\tempnum{\csname numsolsofprob\romannumeral\the\value{chapter}@\romannumeral\the\value{subsection}@\romannumeral\the\value{problem}\endcsname}}%
+    \ifnum \tempnum > 1
+        \stepcounter{numsolution}%
+        \arabic{chapter}.\arabic{problem}.\arabic{numsolution}%
+    \else
+        \arabic{chapter}.\arabic{problem}%
+    \fi%
+}
+\makeatother
 
 \endinput
