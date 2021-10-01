@@ -138,7 +138,7 @@
 % remark environment
 \newenvironment{remark}{\textbf{\color{blue}注}}{\par}
 
-\newenvironment{proof}{\textbf{\color{blue}证明}}{\par}
+\newenvironment{proof}{\textbf{\color{blue}证明} \quad}{\par}
 
 % Load the package with the acronym option
 \RequirePackage[acronym,nomain]{glossaries}
@@ -326,5 +326,83 @@
     \fi%
 }
 \makeatother
+
+
+% reference https://tex.stackexchange.com/questions/20597/beamer-tikz-gradually-unveil-trees
+\tikzset{
+  hide on/.code={
+    \only<presentation>{
+      \only<#1>{\color{fg!0}}
+    }
+  },
+  hide until/.code={
+    \only<presentation>{
+      \only< -#1>{\color{fg!0}}
+      \only< #1> {\color{orange}}
+    }
+  },
+  alert/.code={
+    \only<presentation>{
+      \only< #1> {\color{orange}}
+    }
+  },
+  memoryrow/.style={% 内存条设置
+      matrix of nodes,
+      row 1/.style={nodes = {draw, minimum size=7mm}},
+      column sep=-\pgflinewidth,
+      row sep=-\pgflinewidth,
+      nodes in empty cells,
+      row 2/.style={nodes=rowlabel2},
+      ampersand replacement=\&
+    },
+    arraynode/.style={
+      draw,
+      node contents={[\the\numexpr\pgfmatrixcurrentrow-2\relax][\the\numexpr\pgfmatrixcurrentcolumn-2\relax]},
+      alias=n\the\numexpr\pgfmatrixcurrentrow-2\relax\the\numexpr\pgfmatrixcurrentcolumn-2\relax
+      },
+  columnlabel/.style={
+      minimum size=0pt,
+      draw=none,
+      red,
+      node contents={\the\numexpr\pgfmatrixcurrentcolumn-2\relax},
+      alias=c\the\numexpr\pgfmatrixcurrentcolumn-2\relax
+      },
+  rowlabel/.style={
+      minimum size=0pt,
+      draw=none,
+      red,
+      node contents={\the\numexpr\pgfmatrixcurrentrow-2\relax},
+      alias=r\the\numexpr\pgfmatrixcurrentrow-2\relax
+      },
+  emptynode/.style={node contents=~, draw=none},
+  font=\ttfamily,
+  array/.style={%
+      matrix of nodes,
+      nodes = arraynode,
+      column sep=-\pgflinewidth,
+      row sep=-\pgflinewidth,
+      nodes in empty cells,
+      row 1/.style={nodes=columnlabel},
+      column 1/.style={nodes=rowlabel},
+      row 1 column 1/.style={%
+          nodes=emptynode}},
+  rowlabel2/.style={
+      inner sep=2pt,
+      draw=none,
+      font=\small\ttfamily,
+      node contents={\the\numexpr-1+\pgfmatrixcurrentcolumn\relax},
+      alias=m\the\numexpr-1+\pgfmatrixcurrentcolumn\relax
+      },
+  memory/.style={%
+      matrix of nodes,
+      nodes={draw, minimum size=6mm, anchor=center},
+      row 1/.style={nodes = {columnlabel, black}},
+      column 1/.style={nodes = {rowlabel, black}},
+      row 1 column 1/.style={nodes = emptynode},
+      column sep=-\pgflinewidth,
+      row sep=-\pgflinewidth,
+      nodes in empty cells,
+  },
+}
 
 \endinput
