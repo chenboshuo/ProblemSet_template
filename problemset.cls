@@ -37,6 +37,10 @@
 \ProcessOptionsX
 \LoadClass[\myclassoptions]{\myclasstype}
 
+% https://tex.stackexchange.com/a/34020
+\RequirePackage{amsthm}
+\RequirePackage{etoolbox}
+
 % 其他定理环境 引理, 推论已经定义
 \newtheorem{problem}{问题}[chapter]
 \newtheorem{solution}{解}
@@ -51,6 +55,7 @@
     margin=3mm,
     bottom=3mm
   ]{geometry}
+  \AtEndEnvironment{problem}{\pagebreak}
 \fi
 
 % 加载打印版选项
@@ -138,7 +143,7 @@
 % remark environment
 \newenvironment{remark}{\textbf{\color{blue}注}}{\par}
 
-\newenvironment{proof}{\textbf{\color{blue}证明} \quad}{\par}
+\renewenvironment{proof}{\textbf{\color{blue}证明} \quad}{\par}
 
 % Load the package with the acronym option
 \RequirePackage[acronym,nomain]{glossaries}
@@ -195,7 +200,7 @@
 
 % mutlicol itemize
 % https://tex.stackexchange.com/questions/194426/split-itemize-into-multiple-columns
-\RequirePackage{etoolbox,refcount}
+\RequirePackage{refcount}
 \RequirePackage{multicol}
 
 \newcounter{countitems}
