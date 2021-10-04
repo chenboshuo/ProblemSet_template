@@ -39,6 +39,10 @@
 
 % https://tex.stackexchange.com/a/34020
 \RequirePackage{amsthm}
+% remove dot: https://tug.org/pipermail/tugindia/2005-May/003415.html
+\newtheoremstyle{dotless}{}{}{\itshape}{}{\bfseries}{}{ }{}
+\theoremstyle{dotless}
+
 \RequirePackage{etoolbox}
 
 % 其他定理环境 引理, 推论已经定义
