@@ -412,6 +412,16 @@
       row sep=-\pgflinewidth,
       nodes in empty cells,
   },
+  % the allocation address draw
+  allocation/.style={
+  draw,
+    minimum height=7mm,
+  },
+  bit length/.style={text width=#1*3mm},
+  explanation/.style={label=below:{#1}},
+  MSB loc/.style={label={[anchor=south west]north west:#1}},
+  LSB loc/.style={label={[anchor=south east]north east:#1}},
+  tight right of/.style={right=-\pgflinewidth of #1}
 }
 
 \endinput
