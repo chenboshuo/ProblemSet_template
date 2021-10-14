@@ -425,4 +425,9 @@
   tight right of/.style={right=-\pgflinewidth of #1}
 }
 
+% 调整 box 大小
+% https://tex.stackexchange.com/questions/10863/is-there-a-way-to-slightly-shrink-a-table-including-font-size-to-fit-within-th
+\RequirePackage{adjustbox}
+
+
 \endinput
