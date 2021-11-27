@@ -130,6 +130,7 @@
 % \RequirePackage{clrscode}
 \RequirePackage{clrscode3e}
 \renewcommand{\Comment}[1][2]{$\hspace*{#1em}\rhd$ }
+\renewcommand{\Else}{\kw{else} }
 
 % <- 的定义
 \DeclareMathSymbol{\leftarrow}{\mathrel}{symbols}{"20}
